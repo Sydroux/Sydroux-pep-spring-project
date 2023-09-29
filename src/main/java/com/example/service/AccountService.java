@@ -36,4 +36,13 @@ public class AccountService {
             return null;
         }
     }
+
+    public Account checkAccount (int id) {
+        Optional<Account> existingAccount = accountRepository.findAccountByAccountId(id);
+        if (existingAccount.isPresent()) {
+            return existingAccount.get();
+        } else {
+            return null;
+        }
+    }
 }
